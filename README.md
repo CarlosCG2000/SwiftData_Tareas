@@ -1,3 +1,10 @@
+
+
+
+
+
+
+
 # 📝 SwiftData Tasks App - Ejemplo en SwiftUI
 
 ¡Bienvenido al repositorio de ejemplo sobre cómo trabajar con **SwiftData** en **Xcode 16** utilizando **Swift 6** y **SwiftUI**! 🎉 Este proyecto contiene una pequeña aplicación de tareas que ejemplifica el uso básico de **SwiftData**, un potente framework para gestionar bases de datos en las apps de Apple.
