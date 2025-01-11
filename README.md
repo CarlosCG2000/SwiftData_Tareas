@@ -28,13 +28,29 @@ En este fichero vamos a definir un contenedor de modelo compartido.
 
 Aqui tenemos declarado el contenedor de modelo compartido en la escena dle fichero de esta manera estamos inyectando el contenedor en la App para poder utlizarlo donde quiera y cuando quiera en toda la App.
 
-2. Fichero `DataModel`.
+2. Fichero nuevo `DataModel`.
+Con el modelo de SwiftData de Tarea (formado por sus campos y un constructor).
 
+3. Fichero nuevo `SampleData` dentro de la carpeta `Preview Content`
+Nuestra app la queremos de momento 0, es decir que empiece sin datos y que espere que el usuario los vaya creando. Pero claro para trabajar eso es un problema por ello necesitamos datos de prueba. Entonces tendre que generar un elemento de prueba para que me genere la información y esto se realiza en este fichero.
 
+Necesitamos datos de prueba para inyectarselo al proyecto y poder trabajar con ello sobretodo cuando esto en la Preview.
+Se va a crear un ModelContainer de prueba, igual que se creo en el fichero 1_`TaskSwiftDataApp`, pero aqui se van a registrar elementos de Tareas de manera por defecto de prueba en memoria a diferencia que en el fichero 1_`TaskSwiftDataApp` que va a estar vacio y no se va a guardar en memoria sino en la BD porque va a ser el de producción y no el del Preview de pruebas (que es el de este fichero).
 
+4. Fichero ya existente `ContentView` y lo borramos y lo reharemos desde 0.
+Llamamos en el Preview a 'traits: .sampleData', para poder en Preview utilizar el contendor (ModelContainer) del fichero SampleData el cual contiene ya datos por defecto para probarlo, en vez de usar el de producción que estaría vacio.
+Se llama a la BD para poder consultar las Tareas y poder mostrarlas en la vista (llamando a otras vistas secundarias, cuando es necesario)
 
+5. Fichero nuevo `TareaRow`
+La que estamos haceindo es componentizar el `ContentView` para que tenga aqui el aspecto de elemento de la tarea del listado que luego se llaman en el ContentView.
 
-3. Fichero ya existente `ContentView` y lo borramos y lo reharemos desde 0.
+[
+Si primero creamos todo en `ContentView` para extraerlo automaticamente y crear el `TareaRow` podemos hacer:
+Boton derecho sobre el elemento --> Refactor --> Extract Subview: esto lo que hace es un Struct separado y la llama todo dentro de ese mismo fichero.
+Ahora cortamos ese Struct nuevo que se ha generado y pulsamos el boton derecho en el fichero (parte izquierda, estan todos los ficheros) de `ContentView` y pulsamos 'New 'Nombre_Struct.swift' from Clipboard' y ya crea el fichero directamente, donde no olvidar importar las cosas que necesitemos en este caso 'import SwiftUI'.
+]
+
+5. Fichero nuevo `NewTareaView`
 
 
 

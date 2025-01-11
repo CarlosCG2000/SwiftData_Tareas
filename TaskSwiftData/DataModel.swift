@@ -8,16 +8,6 @@
 import Foundation
 import SwiftData
 
-// Enumeración para un campo del Modelo de SwiftData de Tareas
-// La enumeración tiene que ser de tipo Codable para ser utilizada en SwiftData para que pueda tner una equivalencia
-enum EstadoTarea: String, Codable, CaseIterable, Identifiable {
-    case pendiente = "Pendiente"
-    case enProgreso = "En Progreso"
-    case completada = "Completada"
-    
-    var id: Self { self }
-}
-
 @Model // para que sea una tabla de SwiftData
 // Modelo de SwiftData, muy simple de crear es solo una clase con final (final class)
 final class Tareas {
@@ -37,4 +27,14 @@ final class Tareas {
         self.fecha = fecha
         self.estado = estado
     }
+}
+
+// Enumeración para un campo del Modelo de SwiftData de Tareas
+// La enumeración tiene que ser de tipo Codable para ser utilizada en SwiftData para que pueda tner una equivalencia
+enum EstadoTarea: String, Codable, CaseIterable, Identifiable {
+    case pendiente = "Pendiente"
+    case enProgreso = "En Progreso"
+    case completada = "Completada"
+    
+    var id: Self { self }
 }

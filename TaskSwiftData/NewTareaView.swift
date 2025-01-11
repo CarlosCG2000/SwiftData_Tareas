@@ -2,7 +2,7 @@
 //  NewTareaView.swift
 //  TaskSwiftData
 //
-//  Created by Julio César Fernández Muñoz on 17/9/24.
+//  Created by Carlos Caño Gómez on 11/1/25.
 //
 
 import SwiftUI
@@ -19,21 +19,25 @@ struct NewTareaView: View {
     var body: some View {
         NavigationStack {
             Form {
+                
                 VStack(alignment: .leading) {
                     Text("Nombre de la tarea")
                         .font(.headline)
                         .padding(.leading, 5)
                     TextField("Ingrese el nombre de la tarea", text: $nombre)
                 }
+                
                 VStack(alignment: .leading) {
                     Text("Descripción de la tarea")
                         .font(.headline)
                         .padding(.leading, 5)
                     TextField("Ingrese la descripción de la tarea", text: $descripcion)
                 }
+                
                 DatePicker(selection: $fecha, displayedComponents: .date) {
                     Text("Fecha de la tarea")
                 }
+                
                 Picker(selection: $estado) {
                     ForEach(EstadoTarea.allCases) { tarea in
                         Text(tarea.rawValue)
@@ -42,9 +46,11 @@ struct NewTareaView: View {
                     Text("Seleccione estado")
                 }
             }
+            // Atributos del Form...
             .textFieldStyle(.roundedBorder)
             .navigationTitle("Nueva Tarea")
             .toolbar {
+                
                 ToolbarItem(placement: .confirmationAction) {
                     Button {
                         let newTarea = Tareas(id: UUID(),
@@ -58,6 +64,7 @@ struct NewTareaView: View {
                         Text("Crear")
                     }
                 }
+                
                 ToolbarItem(placement: .cancellationAction) {
                     Button {
                         dismiss()
@@ -65,6 +72,7 @@ struct NewTareaView: View {
                         Text("Cancelar")
                     }
                 }
+                
             }
         }
     }
