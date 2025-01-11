@@ -20,7 +20,8 @@ struct TaskSwiftDataApp: App { // 1_Struct con el protocolo App
         do {
             return try ModelContainer(for: schema, configurations: [modelConfiguration]) // deovlvemos el contenedor con el esquema y la configuración (es un array porque puede haber varias configuraciones)
         } catch { // en caso de que halla un error no va a funcionar. Es decir la aplicación no va a funcionar si la BD no se crea correctamente (esto solo puede pasar si hay algo mal en la configuración).
-            fatalError("Could not create ModelContainer: \(error)")
+            print("Error al crear el ModelContainer: \(error)")
+            fatalError("No se pudo crear el ModelContainer: \(error.localizedDescription)")
         }
     }()
 

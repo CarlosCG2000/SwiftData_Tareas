@@ -5,6 +5,29 @@ Vamos a usar SwifData para generar una aplicaicón de tareas.
 SwifData es muy distinto cuando lo utilizamos como elemento principal en una aplicación a todo lo que hemos visto con coasa que tiene que ver con Clean Arquitecture, MVVM, repositorios, etc.
 Esta organización de la aplicación va a ser distinta a lo que suele ser, por ejemplo diferente a la anterior clase (el proyecto `1_App_Arqui_Json`, en mi repositorio GitHub `CleanArchi_Testing`).
 
+SwiftData es una nueva API de persistencia de datos introducida por Apple en WWDC 2023. Es una alternativa moderna a Core Data, diseñada para simplificar el manejo y almacenamiento de datos en aplicaciones desarrolladas en Swift. SwiftData integra los principios de diseño declarativos de SwiftUI, lo que la hace más intuitiva, legible y fácil de usar en comparación con Core Data.
+
+Características principales de SwiftData
+	1.	Modelo de datos simplificado:
+	•	En SwiftData, los modelos de datos se crean utilizando clases o estructuras de Swift con el atributo @Model. Esto elimina la necesidad de manejar archivos .xcdatamodeld como en Core Data.
+	2.	Persistencia automática:
+	•	SwiftData maneja automáticamente el ciclo de vida de los datos, incluidos guardar, leer, actualizar y eliminar, de forma transparente.
+	3.	Totalmente integrado con Swift y SwiftUI:
+	•	Compatible con paradigmas declarativos.
+	•	Ofrece soporte nativo para trabajar con vistas en SwiftUI.
+	4.	Menor configuración:
+	•	Configurar y utilizar SwiftData es mucho más rápido y directo en comparación con Core Data.
+	5.	Consulta de datos eficiente:
+	•	Incluye capacidades para realizar consultas sobre el modelo de datos con menos esfuerzo y más expresividad.
+
+| **Aspecto**          | **SwiftData**                        | **Core Data**                          |
+|-----------------------|---------------------------------------|-----------------------------------------|
+| **Modelo de datos**   | Declarado con `@Model` en Swift      | Necesita un archivo `.xcdatamodeld`    |
+| **Configuración**     | Sencilla y automática                | Requiere configuración manual compleja |
+| **Integración**       | Diseñado para Swift y SwiftUI        | Compatible con UIKit y SwiftUI         |
+| **Sintaxis**          | Declarativa                          | Imperativa                             |
+| **Actualizaciones**   | Reactivas con `@Query`               | Necesita notificaciones manuales       |
+
 Lo haremos con Swift 6 en concurrencia estricta.
 
 Tenemos que tener en cuenta que Swift funciona en `MVVM`, si quieres otra arquitectura vas a tener que poner una capa por encima de esta. El profesor cuando trabaja suele poner la capa de `Clean Arquitecture` porque al final es la que mejor se adapta a todo el elemento, pero si tu quieres aplicar cualquier otra arquitectura o patrón de arquitectura tendrás que adaptarlo para que funcione sobre el patrón MVVM basado hasta `iOS 17 @Observable` y desde `iOS 16 o anterior @Observable Object`. Hagas lo que hagas, montes lo que montes o pones un VM con `@Observable` o `@Observable Object` o la app no va a funcionar. A partir de hay si entiendes bien como funciona el framework puedes adaptarte a cualquier arquitectura que para ti sea más cómoda. Porque lo que no se puede hacer es pensar que los patrones arquitectulares son como la biblia y si no la cumplimos con las arquitecturas que Apple desea va a venir Jobs a matarnos 😸.
@@ -39,7 +62,8 @@ Se va a crear un ModelContainer de prueba, igual que se creo en el fichero 1_`Ta
 
 4. Fichero ya existente `ContentView` y lo borramos y lo reharemos desde 0.
 Llamamos en el Preview a 'traits: .sampleData', para poder en Preview utilizar el contendor (ModelContainer) del fichero SampleData el cual contiene ya datos por defecto para probarlo, en vez de usar el de producción que estaría vacio.
-Se llama a la BD para poder consultar las Tareas y poder mostrarlas en la vista (llamando a otras vistas secundarias, cuando es necesario)
+Se llama a la BD para poder consultar las Tareas y poder mostrarlas en la vista (llamando a otras vistas secundarias, cuando es necesario).
+Tambien en una Toolbar se crea un boton para navegar a la vista con el formulario para crear una nueva tarea.
 
 5. Fichero nuevo `TareaRow`
 La que estamos haceindo es componentizar el `ContentView` para que tenga aqui el aspecto de elemento de la tarea del listado que luego se llaman en el ContentView.
@@ -51,8 +75,10 @@ Ahora cortamos ese Struct nuevo que se ha generado y pulsamos el boton derecho e
 ]
 
 5. Fichero nuevo `NewTareaView`
+Vamos a invocar para crear nuevos registros. Lo que tenemos que hacer es recuperar el contexto. Lo primero inyectamos el (traits: .sampleData) en la Preview, para tener acceso al contexto de prueba, en la Preview. Luego creamos variables de entorno para obtener e.l valor de la BD, es decir modelContext. Necesitamos el context porque me vas a permitir insertar en la BD.
 
-
+Parte de lo que hacemos aqui deberia estar en un VM (View Model) pero para hacerlo más rapido lo realizamos aqui dentro. Tambien se podria añadir validaciones, etc.
+Creamos el formulario con sus items necesarios.
 
 # 📝 SwiftData Tasks App - Ejemplo en SwiftUI
 

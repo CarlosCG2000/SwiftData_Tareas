@@ -10,7 +10,7 @@ import SwiftData // Para trabajar con la BD
 
 struct ContentView: View {
     
-    @Environment(\.modelContext) private var context
+    @Environment(\.modelContext) private var context // Variable de entorno donde recogemos el valor de la BD, es decir modelContext, necesario para poder borrar las tareas qque queramos
    
     @Query private var tareas: [Tareas] // 2_ @Query nos permite consultar la BD
     @State private var showAdd = false
@@ -19,7 +19,7 @@ struct ContentView: View {
         NavigationStack {
             VStack {
                 
-                if tareas.isEmpty {
+                if tareas.isEmpty { // Si no hay tareas que me salga esto en pantalla
                     ContentUnavailableView("No hay tareas",
                                            systemImage: "list.bullet.clipboard",
                                            description: Text("Aún no existen tareas en la app. Por favor, pulse el + arriba a la derecha para crear una nueva tarea."))
@@ -34,15 +34,16 @@ struct ContentView: View {
             .toolbar {
                 ToolbarItem(placement: .primaryAction) {
                     Button {
-                        showAdd.toggle()
+                        showAdd.toggle() // para poner la variable showAdd a verdadero
                     } label: {
                         Image(systemName: "plus")
                     }
                 }
             }
         }
+        // variable de estado $showAdd si es verdadero
         .fullScreenCover(isPresented: $showAdd) {
-            NewTareaView()
+            NewTareaView() // navegar a la vista nueva tarea
         }
     }
     
@@ -55,7 +56,7 @@ struct ContentView: View {
             // Atributos del List...
             .onDelete { index in // borrar una Tarea de la lista
                 for i in index {
-                    context.delete(tareas[i])
+                    context.delete(tareas[i]) // seleccionar la tarea a borrar a traves del modelContext
                 }
             }
         }
