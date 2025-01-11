@@ -1,6 +1,40 @@
 
 # MI PARTE
+Vamos a usar SwifData para generar una aplicaicón de tareas.
 
+SwifData es muy distinto cuando lo utilizamos como elemento principal en una aplicación a todo lo que hemos visto con coasa que tiene que ver con Clean Arquitecture, MVVM, repositorios, etc.
+Esta organización de la aplicación va a ser distinta a lo que suele ser, por ejemplo diferente a la anterior clase (el proyecto `1_App_Arqui_Json`, en mi repositorio GitHub `CleanArchi_Testing`).
+
+Lo haremos con Swift 6 en concurrencia estricta.
+
+Tenemos que tener en cuenta que Swift funciona en `MVVM`, si quieres otra arquitectura vas a tener que poner una capa por encima de esta. El profesor cuando trabaja suele poner la capa de `Clean Arquitecture` porque al final es la que mejor se adapta a todo el elemento, pero si tu quieres aplicar cualquier otra arquitectura o patrón de arquitectura tendrás que adaptarlo para que funcione sobre el patrón MVVM basado hasta `iOS 17 @Observable` y desde `iOS 16 o anterior @Observable Object`. Hagas lo que hagas, montes lo que montes o pones un VM con `@Observable` o `@Observable Object` o la app no va a funcionar. A partir de hay si entiendes bien como funciona el framework puedes adaptarte a cualquier arquitectura que para ti sea más cómoda. Porque lo que no se puede hacer es pensar que los patrones arquitectulares son como la biblia y si no la cumplimos con las arquitecturas que Apple desea va a venir Jobs a matarnos 😸.
+
+¿Patrón factory para inyectar las dependencias? No, en SwiftUI la la inyección de dependencias de hace de manera nativa.
+Hay que entender una cosa en programación cada lenguaje o framework es un mundo y si intentamos aplicar las reglas de otros lenguajes en Swift no va a funcionar. El patrón factory no sirve, ¿lo puedes hacer? Si,¿pero es util? No. Es absurdo porque en SwiftUI la inyección de dependencias dse hace a través de los propios `Struct` cuando defines una propiedad en un 'Struct' y no la inicalizas, el inicializador te pide que lo inyectes y ya esta, sin necesidad de poner patrón que significaria poner capas sobre capas sobre capas...
+
+Empezamos el proyecto:
+Al crear el proyecto tenemos que seleccionar en 'Storage: SwiftData (en vez de None ó CoreData)'
+Al eligir SwiftData, va a crear una plantilla con una pantalla ya prehecha con una serie de elementos para tener una funcionalidad básica.
+Una vez creado el proyecto para ver la versión de Swift que tenemos vamos al archivo principal (que es el ejecutable) lo pulsamos y vamos a 'Build Settings' y en la parte de abajo sale el 'Swift Compiler Language' con la versión (en mi caso Swift 6). Tambien se pueden ver otras configuraciones en ese 'Build Settings'.
+
+1. Fichero ya existente `TaskSwiftDataApp`:
+SwiftData tiene dos partes fundamentales:
+- El contenedor que es donde yo almaceno la información en disco (es el elemento a más alto nivel que hay que definir).
+- Un contexto que es el que va a permitir insertar información, borrarla, etc. Es como la zona intermedia que tienen las BD donde tu puedes insertas, borras, etc y hasta que no haces el commit no se inserta en el almacenamiento real o se rechaza.
+
+En este fichero vamos a definir un contenedor de modelo compartido.
++ El módelo compartido es un objeto que controla el esquema de la App y la configuración del almacenamiento del modelo.
++ El contenedor es el elemento principal donde yo voy a trabajar con este módelo compartido.
+
+Aqui tenemos declarado el contenedor de modelo compartido en la escena dle fichero de esta manera estamos inyectando el contenedor en la App para poder utlizarlo donde quiera y cuando quiera en toda la App.
+
+2. Fichero `DataModel`.
+
+
+
+
+
+3. Fichero ya existente `ContentView` y lo borramos y lo reharemos desde 0.
 
 
 
