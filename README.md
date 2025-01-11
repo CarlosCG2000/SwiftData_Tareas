@@ -75,13 +75,13 @@ Boton derecho sobre el elemento --> Refactor --> Extract Subview: esto lo que ha
 Ahora cortamos ese Struct nuevo que se ha generado y pulsamos el boton derecho en el fichero (parte izquierda, estan todos los ficheros) de `ContentView` y pulsamos 'New 'Nombre_Struct.swift' from Clipboard' y ya crea el fichero directamente, donde no olvidar importar las cosas que necesitemos en este caso 'import SwiftUI'.
 ]
 
-5. Fichero nuevo `NewTareaView`
+6. Fichero nuevo `NewTareaView`
 Vamos a invocar para crear nuevos registros. Lo que tenemos que hacer es recuperar el contexto. Lo primero inyectamos el (traits: .sampleData) en la Preview, para tener acceso al contexto de prueba, en la Preview. Luego creamos variables de entorno para obtener e.l valor de la BD, es decir modelContext. Necesitamos el context porque me vas a permitir insertar en la BD.
 
 Parte de lo que hacemos aqui deberia estar en un VM (View Model) pero para hacerlo más rapido lo realizamos aqui dentro. Tambien se podria añadir validaciones, etc.
 Creamos el formulario con sus items necesarios.
 
-# 📝 SwiftData Tasks App - Ejemplo en SwiftUI
+# 📝 SwiftData Tasks App - Ejemplo en SwiftUI (de Apple Coding Academy)
 
 ¡Bienvenido al repositorio de ejemplo sobre cómo trabajar con **SwiftData** en **Xcode 16** utilizando **Swift 6** y **SwiftUI**! 🎉 Este proyecto contiene una pequeña aplicación de tareas que ejemplifica el uso básico de **SwiftData**, un potente framework para gestionar bases de datos en las apps de Apple.
 
