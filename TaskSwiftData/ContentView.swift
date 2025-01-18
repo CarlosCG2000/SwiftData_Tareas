@@ -63,7 +63,7 @@ struct ContentView: View {
     }
 }
 
-// 1_traits: .sampleData, para poder en Preview utilizar el contendor (ModelContainer) del fichero SampleData el cual contiene ya datos por defecto para probarlo, en vez de usar el de producción que estaría vacio
+// 1_traits: .sampleData, para poder en Preview utilizar el contenedor (ModelContainer) del fichero 'SampleData' el cual contiene ya datos por defecto para probarlo, en vez de usar el de producción que estaría vacio
 #Preview(traits: .sampleData) {
     ContentView()
 }

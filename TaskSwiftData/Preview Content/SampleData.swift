@@ -9,9 +9,9 @@ import SwiftUI
 import SwiftData // SwiftData
 
 // Necesitamos datos de prueba para inyectarselo al proyecto y poder trabajar con ello
-struct SampleData: PreviewModifier { // 1_PreviewModifier, me permite (y obliga) a tener una propiedad Body con un Content y un Context (2_)
+struct SampleData: PreviewModifier { // 1_PreviewModifier, me permite (y obliga) a tener una propiedad 'Body' con un 'Content' y un 'Context' (2_)
     
-    static func makeSharedContext() async throws -> ModelContainer { //3_ es una funcion estatica donde se devuelve un ModelContainer de prueba, igual que se creo en el fichero TaskSwiftDataApp pero con tareas y guardandose en memoria en vez de la BD
+    static func makeSharedContext() async throws -> ModelContainer { //3_Es una función estatica donde se devuelve un ModelContainer de prueba, igual que se creo en el fichero 'TaskSwiftDataApp' pero con tareas y guardandose en memoria en vez de la BD y tambien siendo una función a diferencia que del otro que es uni variable
         
         let schema = Schema([Tareas.self]) // esquema con las tablas de los datos que vamos a guardar
         
