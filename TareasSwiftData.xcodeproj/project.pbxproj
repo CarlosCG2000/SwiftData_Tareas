@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXFileReference section */
-		4BB300902C99E5CF00BFF92C /* TaskSwiftData.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaskSwiftData.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4BB300902C99E5CF00BFF92C /* TareasSwiftData.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TareasSwiftData.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -40,7 +40,7 @@
 		4BB300912C99E5CF00BFF92C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4BB300902C99E5CF00BFF92C /* TaskSwiftData.app */,
+				4BB300902C99E5CF00BFF92C /* TareasSwiftData.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -48,9 +48,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		4BB3008F2C99E5CF00BFF92C /* TaskSwiftData */ = {
+		4BB3008F2C99E5CF00BFF92C /* TareasSwiftData */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4BB300A02C99E5D000BFF92C /* Build configuration list for PBXNativeTarget "TaskSwiftData" */;
+			buildConfigurationList = 4BB300A02C99E5D000BFF92C /* Build configuration list for PBXNativeTarget "TareasSwiftData" */;
 			buildPhases = (
 				4BB3008C2C99E5CF00BFF92C /* Sources */,
 				4BB3008D2C99E5CF00BFF92C /* Frameworks */,
@@ -63,11 +63,11 @@
 			fileSystemSynchronizedGroups = (
 				4BB300922C99E5CF00BFF92C /* TaskSwiftData */,
 			);
-			name = TaskSwiftData;
+			name = TareasSwiftData;
 			packageProductDependencies = (
 			);
 			productName = TaskSwiftData;
-			productReference = 4BB300902C99E5CF00BFF92C /* TaskSwiftData.app */;
+			productReference = 4BB300902C99E5CF00BFF92C /* TareasSwiftData.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -85,7 +85,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 4BB3008B2C99E5CF00BFF92C /* Build configuration list for PBXProject "TaskSwiftData" */;
+			buildConfigurationList = 4BB3008B2C99E5CF00BFF92C /* Build configuration list for PBXProject "TareasSwiftData" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -99,7 +99,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				4BB3008F2C99E5CF00BFF92C /* TaskSwiftData */,
+				4BB3008F2C99E5CF00BFF92C /* TareasSwiftData */,
 			);
 		};
 /* End PBXProject section */
@@ -305,7 +305,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		4BB3008B2C99E5CF00BFF92C /* Build configuration list for PBXProject "TaskSwiftData" */ = {
+		4BB3008B2C99E5CF00BFF92C /* Build configuration list for PBXProject "TareasSwiftData" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4BB3009E2C99E5D000BFF92C /* Debug */,
@@ -314,7 +314,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4BB300A02C99E5D000BFF92C /* Build configuration list for PBXNativeTarget "TaskSwiftData" */ = {
+		4BB300A02C99E5D000BFF92C /* Build configuration list for PBXNativeTarget "TareasSwiftData" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4BB300A12C99E5D000BFF92C /* Debug */,

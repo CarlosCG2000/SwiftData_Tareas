@@ -10,9 +10,10 @@ import SwiftData // Para trabajar con la BD
 
 struct ContentView: View {
     
-    @Environment(\.modelContext) private var context // Variable de entorno donde recogemos el valor de la BD, es decir modelContext, necesario para poder borrar las tareas qque queramos
-   
     @Query private var tareas: [Tareas] // 2_ @Query nos permite consultar la BD
+    
+    @Environment(\.modelContext) private var context // Variable de entorno donde recogemos el valor de la BD, es decir modelContext, necesario para poder borrar las tareas qque queramos en este caso
+   
     @State private var showAdd = false
     
     var body: some View {

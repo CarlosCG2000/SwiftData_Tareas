@@ -11,9 +11,10 @@ import SwiftUI
 struct NewTareaView: View {
 
     //2_Creamos variables de entorno:
-    @Environment(\.dismiss) private var dismiss // nos permite quitar la pantalla cuando ya no nos interese utilizarla
-    @Environment(\.modelContext) private var context // recogemos el valor de la BD, es decir modelContext
+    @Environment(\.modelContext) private var context // recogemos el valor de la BD, es decir modelContext, permitiendonos añadir tareas en este caso
     
+    @Environment(\.dismiss) private var dismiss // nos permite quitar la pantalla cuando ya no nos interese utilizarla
+
     // Datos para el formulario (esto tendria que estar en un View Model, etc pero lo hacemos aqui de forma rapida)
     @State private var nombre: String = ""
     @State private var descripcion: String = ""
