@@ -58,7 +58,7 @@ En este fichero vamos a definir un contenedor de `modelo compartido`.
 
 + El `contenedor` es el `elemento principal` donde yo voy a trabajar con este `módelo compartido`.
 
-Aqui tenemos declarado el contenedor de `modelo compartido` en la escena del fichero de esta manera estamos inyectando `el contenedor` en la App para poder utlizarlo donde quiera y cuando quiera en toda la App.
+Aqui tenemos declarado el contenedor de `modelo compartido` en la escena del fichero de esta manera estamos inyectando `el contenedor` en la App para poder utilizarlo donde quiera y cuando quiera en toda la App.
 
 2. Fichero nuevo `DataModel`.
 
