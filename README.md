@@ -50,7 +50,7 @@ Una vez creado el proyecto para ver la versión de Swift que tenemos vamos al `a
 SwiftData tiene `dos partes` fundamentales:
 - 1. El `contenedor` que es donde yo `almaceno` la información en `disco` (es el elemento a más alto nivel que hay que definir).
 
-- 2. Un `contexto` que es el que va a permitir `insertar` información, `borrarla`, etc. Es como la `zona intermedia` que tienen las `BD` donde tu puedes insertas, borras, etc y hasta que no haces `el commit` no se inserta en el almacenamiento real o se rechaza.
+- 2. Un `contexto` que es el que va a permitir `insertar` información, `borrarla`, etc. Es como la `zona intermedia` que tienen las `BD` donde tu puedes insertas, borrar, etc y hasta que no haces `el commit` no se inserta en el almacenamiento real o se rechaza.
 
 En este fichero vamos a definir un contenedor de `modelo compartido`.
 
