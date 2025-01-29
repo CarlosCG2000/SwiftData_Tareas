@@ -1,19 +1,19 @@
 
 ### CRÉDITOS a `Apple Coding Academy`: https://github.com/applecodingacademy
 ## EXPLICACIÓN POR MI DEL PROYECTO
-Vamos a usar SwifData para generar una aplicación de tareas.
+Vamos a usar `SwifData` para generar una `aplicación de tareas`.
 
 `SwifData` es muy distinto cuando lo utilizamos como elemento principal en una aplicación a todo lo que hemos visto con cosa que tiene que ver con `Clean Arquitecture`, `MVVM`, repositorios, etc.
 Esta organización de la aplicación va a ser distinta a lo que suele ser, por ejemplo diferente a la anterior clase (el proyecto `1_App_Arqui_Json`, en mi repositorio GitHub `CleanArchi_Testing`).
 
-`SwiftData` es una nueva `API de persistencia` de datos introducida por Apple en WWDC `2023`. Es una alternativa moderna a Core Data, diseñada para simplificar el manejo y almacenamiento de datos en aplicaciones desarrolladas en Swift. SwiftData integra los principios de diseño declarativos de `SwiftUI`, lo que la hace más intuitiva, legible y fácil de usar en comparación con `Core Data`.
+`SwiftData` es una nueva `API de persistencia` de datos introducida por Apple en WWDC `2023`. Es una alternativa moderna a `Core Data`, diseñada para simplificar el manejo y almacenamiento de datos en aplicaciones desarrolladas en Swift. SwiftData integra los principios de diseño declarativos de `SwiftUI`, lo que la hace más intuitiva, legible y fácil de usar en comparación con `Core Data`.
 
-Características principales de SwiftData
+Características principales de `SwiftData`
 1. `Modelo de datos simplificado`:
 	• En SwiftData, los modelos de datos se crean utilizando clases o estructuras de Swift con el atributo `@Model`. Esto elimina la necesidad de manejar archivos `.xcdatamodeld` como en `Core Data`.
 
 2. `Persistencia automática`:
-	• SwiftData maneja automáticamente el `ciclo de vida de los datos`, incluidos guardar, leer, actualizar y eliminar, de forma transparente.
+	• SwiftData maneja automáticamente el `ciclo de vida de los datos`, incluidos `guardar`, `leer`, `actualizar` y `eliminar`, de forma transparente.
 
 3. Totalmente `integrado` con `Swift` y `SwiftUI`:
 	• Compatible con paradigmas `declarativos`.
@@ -35,15 +35,17 @@ Características principales de SwiftData
 
 Lo haremos con `Swift 6` en `concurrencia estricta`.
 
-Tenemos que tener en cuenta que Swift funciona en `MVVM`, si quieres otra arquitectura vas a tener que poner una capa por encima de esta. El profesor cuando trabaja suele poner la capa de `Clean Arquitecture` porque al final es la que mejor se adapta a todo el elemento, pero si tu quieres aplicar cualquier otra arquitectura o patrón de arquitectura tendrás que adaptarlo para que funcione sobre el patrón MVVM basado hasta `iOS 17 @Observable` y desde `iOS 16 o anterior @Observable Object`. Hagas lo que hagas, montes lo que montes o pones un VM con `@Observable` o `@Observable Object` o la app no va a funcionar. A partir de hay si entiendes bien como funciona el framework puedes adaptarte a cualquier arquitectura que para ti sea más cómoda. Porque lo que no se puede hacer es pensar que los patrones arquitectulares son como la biblia y si no la cumplimos con las arquitecturas que Apple desea va a venir Jobs a matarnos 😸.
+Tenemos que tener en cuenta que Swift funciona en `MVVM`, si quieres otra arquitectura vas a tener que poner una `capa por encima` de esta. El profesor cuando trabaja suele poner la capa de `Clean Arquitecture` porque al final es la que mejor se `adapta` a todo el elemento, pero si tu quieres aplicar cualquier otra `arquitectura o patrón de arquitectura` tendrás que adaptarlo para que funcione sobre el patrón MVVM basado hasta `iOS 17 @Observable` y desde `iOS 16 o anterior @Observable Object`. Hagas lo que hagas, montes lo que montes o pones un `VM` con `@Observable` o `@Observable Object` o la app no va a funcionar. A partir de hay si entiendes bien como funciona el framework puedes adaptarte a cualquier arquitectura que para ti sea más cómoda. Porque lo que no se puede hacer es pensar que los `patrones arquitectulares` son como la biblia y si no la cumplimos con las arquitecturas que Apple desea va a venir Jobs a matarnos 😸.
 
-`¿Patrón factory para inyectar las dependencias?`: `No`, en SwiftUI la la `inyección de dependencias` de hace de manera `nativa`.
-Hay que entender una cosa en programación cada lenguaje o framework es un mundo y si intentamos aplicar las reglas de otros lenguajes en Swift no va a funcionar. El `patrón factory` no sirve, ¿lo puedes hacer? Si, ¿pero es util? No. Es absurdo porque en SwiftUI la inyección de dependencias se hace a través de los propios `Struct` cuando defines una propiedad en un `Struct` y no la inicializas, el inicializador te pide que lo inyectes y ya esta, sin necesidad de poner patrón que significaria poner capas sobre capas sobre capas...
+### `¿Patrón factory para inyectar las dependencias?`
+`No`, en SwiftUI la la `inyección de dependencias` de hace de manera `nativa`.
+Hay que entender una cosa en programación cada lenguaje o framework es un mundo y si intentamos aplicar las reglas de otros lenguajes en Swift no va a funcionar. El `patrón factory` no sirve, `¿lo puedes hacer?` Si, `¿pero es util?` No. Es absurdo porque en SwiftUI la inyección de dependencias se hace a través de los propios `Struct` cuando defines una propiedad en un `Struct` y no la inicializas, el inicializador te pide que lo inyectes y ya esta, sin necesidad de poner patrón que significaria poner `capas sobre capas sobre capas`...
 
 Empezamos el proyecto:
 Al crear el proyecto tenemos que seleccionar en `Storage: SwiftData (en vez de None ó CoreData)`
 Al eligir `SwiftData`, va a crear una `plantilla` con una pantalla ya prehecha con una serie de elementos para tener una funcionalidad básica.
-Una vez creado el proyecto para ver la versión de Swift que tenemos vamos al `archivo principal` (que es el `ejecutable`) lo pulsamos y vamos a `Build Settings` y en la parte de abajo sale el `Swift Compiler Language` con la versión (en mi caso Swift 6). Tambien se pueden ver otras configuraciones en ese `Build Settings`.
+
+Una vez creado el proyecto para ver la versión de Swift que tenemos vamos al `archivo principal` (que es el `ejecutable`) lo pulsamos y vamos a `Build Settings` y en la parte de abajo sale el `Swift Compiler Language` con la versión (en mi caso `Swift 6`). Tambien se pueden ver otras configuraciones en ese `Build Settings`.
 
 1. Fichero que ya existente `TaskSwiftDataApp`.
 
@@ -66,15 +68,15 @@ Con el modelo de SwiftData de `Tarea` (formado por sus `campos` y un `constructo
 
 3. Fichero nuevo `SampleData` dentro de la carpeta `Preview Content`.
 
-Nuestra app la queremos de momento  a `0`, es decir que empiece `sin datos` y que espere que el usuario los vaya creando. Pero claro para trabajar eso es un problema por ello necesitamos` datos de prueba`. Entonces tendre que generar un elemento de prueba para que me genere la información y esto se realiza en este fichero.
+Nuestra app la queremos de momento a `0`, es decir que empiece `sin datos` y que espere que el usuario los vaya creando. Pero claro para trabajar eso es un problema por ello necesitamos `datos de prueba`. Entonces tendre que generar un elemento de prueba para que me genere la información y esto se realiza en este fichero.
 
 Necesitamos `datos de prueba` para inyectarselo al proyecto y poder trabajar con ello sobretodo cuando esto en la `Preview`.
 Se va a crear un `ModelContainer` de prueba, igual que se creo en el fichero 1_`TaskSwiftDataApp`, pero aqui se van a registrar elementos de Tareas de manera por defecto de prueba en memoria a diferencia que en el fichero 1_`TaskSwiftDataApp` que va a estar vacio y no se va a guardar en memoria sino en la BD porque va a ser el de producción y no el del Preview de pruebas (que es el de este fichero).
 
 4. Fichero que ya existente `ContentView` y lo borramos y lo reharemos desde 0.
-Llamamos en el `Preview` a `traits: .sampleData`, para poder en Preview utilizar el contenedor `ModelContainer` del fichero `SampleData` el cual contiene ya datos por defecto para probarlo, en vez de usar el de producción que estaría vacio.
+Llamamos en el `Preview` a `traits: .sampleData`, para poder en `Preview` utilizar el contenedor `ModelContainer` del fichero `SampleData` el cual contiene ya datos por defecto para probarlo, en vez de usar el de producción que estaría vacio.
 
-Se llama a la BD para poder consultar las `Tareas` y poder mostrarlas en la vista (llamando a otras vistas secundarias, cuando es necesario).
+Se llama a la BD para poder consultar las `Tareas` y poder mostrarlas en la `vista` (llamando a otras vistas secundarias, cuando es necesario).
 Tambien en una `Toolbar` se crea un botón para navegar a la vista con el formulario para crear una nueva tarea.
 
 5. Fichero nuevo `TareaRow`
